@@ -10,39 +10,62 @@ public class VersionModel {
 
 
     /**
-     * 文件包名称
+     * 标题文本
      */
-    private String clientName;
+    private String title;
 
     /**
-     * 文件包大小
+     * 标题文字颜色
      */
-    private String clientSize;
+    private String titleColor;
 
     /**
-     * 文件包下载路径
+     * 版本号，整数，作为版本比较使用
      */
-    private String clientUrl;
-
+    private int versionCode;
 
     /**
-     * 扩展字段
+     * 版本号名称
      */
-    private Integer promote;
+    private String versionName;
 
     /**
-     * 更新内容
+     * 版本号名称文字颜色
+     */
+    private String versionNameColor;
+
+    /**
+     * 更新说明
      */
     private String upgradePrompt;
 
     /**
-     * 编译版本号
+     * 更新说明文字颜色
      */
-    private Integer version;
+    private String upgradePromptColor;
 
     /**
-     * 软件版本号
+     * 更新按钮文字
      */
-    private String versionCode;
+    private String butText;
 
+    /**
+     * 更新按钮文字颜色
+     */
+    private String butTextColor;
+
+    /**
+     * 更新按钮背景颜色
+     */
+    private String butBgColor;
+
+    /**
+     * APK 地址
+     */
+    private String apkUrl;
+
+    /**
+     * 0 是直接安装，1，是跳转连接
+     */
+    private int installType;
 }

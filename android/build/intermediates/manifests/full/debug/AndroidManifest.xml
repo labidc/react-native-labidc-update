@@ -13,17 +13,18 @@
         <!-- 文件提供者是android 7.0 以上的版本需要 -->
         <provider
             android:name="android.support.v4.content.FileProvider"
-            android:authorities="com.kp.fileProvider"
+            android:authorities="com.react.labidc.update.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-        <meta-data
-            android:name="labidc.update.url"
-            android:value="https://api.qishixingqiu.com/api/common/client/version/express-android" />
+        <!--
+        过时：1.0.8以上就不再依赖请求地址，由参数传递进入，在你的应用中配置该资源
+        <meta-data android:value="您的请求最新版本信息的路径"
+         android:name="labidc.update.url"></meta-data>
+        -->
     </application>
 
 </manifest>

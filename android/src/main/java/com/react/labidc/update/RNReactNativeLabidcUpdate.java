@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -14,6 +15,8 @@ import android.os.Message;
 import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,37 +48,30 @@ public class RNReactNativeLabidcUpdate {
      */
     public static final int SHOW_ERROR = 1;
 
-
     /**
      * 版本请求地址
      */
-    private static String versionUrl = "";
-
-
+    // private static String versionUrl = "";
 
     /**
      * 弹窗对象
      */
     private static UpdateDialog updateDialog = null;
 
-
     /**
      * 需要下载的apk Url路径
      */
     private static String apkUrl = "";
-
 
     /**
      * apk 下载到本地的存储路径
      */
     private static String apkCachePath = null;
 
-
     /**
      * 消息处理
      */
     private static Handler handler = null;
-
 
     /**
      * 一些初始化操作
@@ -83,15 +79,6 @@ public class RNReactNativeLabidcUpdate {
      */
     public static void init(final Activity activity){
 
-
-        try {
-            ApplicationInfo appInfo = activity.getPackageManager()
-                    .getApplicationInfo(activity.getPackageName(),
-                            PackageManager.GET_META_DATA);
-            versionUrl = appInfo.metaData.getString("labidc.update.url","");
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
 
         if(apkCachePath == null) {
             // 这里的目录对应 files-path 设置的目录根目录下
@@ -150,90 +137,91 @@ public class RNReactNativeLabidcUpdate {
 
 
     /**
-     * 请求版本更新检查
-     * @return
-     */
-    private static VersionModel execute(final Activity activity) {
-
-        if("".equals(versionUrl)) {
-            Log.e(TAG,"没有获取到版本请求url，请检查");
-            return null;
-        }
-
-        try {
-            OkHttpClient client = new OkHttpClient();
-            Request request = new Request.Builder().get().url(versionUrl).
-                    header("Content-Type", "application/json; charset=UTF-8").
-                    header("Accept", "application/json")
-                    .build();
-            Response response = client.newCall(request).execute();
-            if (response.isSuccessful()) {
-                String jsonStr = response.body().string();
-
-                Log.e(TAG,jsonStr);
-                if ("".equals(jsonStr))
-                    return null;
-                else {
-                    VersionModel versionModel = JSON.parseObject(jsonStr, new TypeReference<VersionModel>() {
-                    });
-                    int curVersion = getVersionCode(activity);
-                    if (curVersion < versionModel.getVersion()) {
-                        return versionModel;
-                    }
-                    return null;
-                }
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-
-    /**
      * 打开启动屏
      */
-    public static void check(final Activity activity) {
+    public static void check(final Activity activity, VersionModel versionModel) {
+
         // 初始化一些参数
         init(activity);
-        // 请求版本，返回版本实体
-        VersionModel vesionModel = execute(activity);
+
         // 显示弹窗
-        showUpdateDiglog(activity, vesionModel);
+        showUpdateDiglog(activity, versionModel);
     }
 
     /**
      * 显示更新弹窗
-     * @param vesionModel
+     * @param versionModel
      */
-    private static void showUpdateDiglog(final Activity activity, final VersionModel vesionModel) {
+    private static void showUpdateDiglog(final Activity activity, final VersionModel versionModel) {
 
 
         /**
          * 弹出更新文本框
          */
-        if (vesionModel != null) {
-            updateDialog.show();
-            TextView tvmsg = (TextView) updateDialog.findViewById(R.id.updataVersionMsg);
-            TextView tvcode = (TextView) updateDialog.findViewById(R.id.updataVersionCode);
-            tvcode.setText(vesionModel.getVersionCode());
-            tvmsg.setText(vesionModel.getUpgradePrompt());
-            /**
-             * 点击按钮出发更新事件
-             */
-            updateDialog.setOnCenterItemClickListener(new UpdateDialog.OnCenterItemClickListener() {
-                @Override
-                public void OnCenterItemClick(UpdateDialog dialog, View view) {
-                    int i = view.getId();
-                    Log.e(TAG,"点击了按钮"+i);
-                    if (i == R.id.dialog_sure) {
-                        apkUrl = vesionModel.getClientUrl();
-                        confirmDownloadApk(activity);
-                        //弹窗下载
+        if (versionModel != null) {
+
+            int curVersion = getVersionCode(activity);
+            if (curVersion < versionModel.getVersionCode()) {
+                updateDialog.show();
+                TextView updateTitle = (TextView) updateDialog.findViewById(R.id.updateTitle);
+                TextView updateVersionName = (TextView) updateDialog.findViewById(R.id.updateVersionName);
+                TextView updateUpgradePrompt = (TextView) updateDialog.findViewById(R.id.updateUpgradePrompt);
+                TextView updateBut = (TextView) updateDialog.findViewById(R.id.updateBut);
+                LinearLayout dialog_sure = (LinearLayout) updateDialog.findViewById(R.id.dialog_sure);
+
+                if(!"".equals(versionModel.getTitle()))
+                     updateTitle.setText(versionModel.getTitle());
+
+                if(!"".equals(versionModel.getTitleColor()))
+                    updateTitle.setTextColor(Color.parseColor(versionModel.getTitleColor()));
+
+                if(!"".equals(versionModel.getUpgradePrompt()))
+                    updateUpgradePrompt.setText(versionModel.getUpgradePrompt());
+
+                if(!"".equals(versionModel.getUpgradePromptColor()))
+                    updateUpgradePrompt.setTextColor(Color.parseColor(versionModel.getUpgradePromptColor()));
+
+                if(!"".equals(versionModel.getVersionName()))
+                    updateVersionName.setText(versionModel.getVersionName());
+
+                if(!"".equals(versionModel.getVersionNameColor()))
+                    updateVersionName.setTextColor(Color.parseColor(versionModel.getVersionNameColor()));
+
+                if(!"".equals(versionModel.getButText()))
+                    updateBut.setText(versionModel.getButText());
+
+                if(!"".equals(versionModel.getButTextColor()))
+                    updateBut.setTextColor(Color.parseColor(versionModel.getButTextColor()));
+
+                if(!"".equals(versionModel.getButBgColor()))
+                    dialog_sure.setBackgroundColor(Color.parseColor(versionModel.getButBgColor()));
+
+                /**
+                 * 点击按钮出发更新事件
+                 */
+                updateDialog.setOnCenterItemClickListener(new UpdateDialog.OnCenterItemClickListener() {
+                    @Override
+                    public void OnCenterItemClick(UpdateDialog dialog, View view) {
+                        int i = view.getId();
+                        if (i == R.id.dialog_sure) {
+
+                            if(versionModel.getInstallType() == 0) {
+                                //直接下载并安装
+                                apkUrl = versionModel.getApkUrl();
+                                confirmDownloadApk(activity);
+                            }else {
+                                //代码实现跳转.浏览器打开
+                                Intent intent = new Intent();
+                                intent.setAction("android.intent.action.VIEW");
+                                Uri url = Uri.parse(versionModel.getApkUrl());
+                                intent.setData(url);
+                                activity.startActivity(intent);
+                            }
+
+                        }
                     }
-                }
-            });
+                });
+            }
         }
     }
 
