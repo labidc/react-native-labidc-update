@@ -99,7 +99,7 @@ LabidcUpdate.check();
 
 ![image](https://github.com/labidc/react-native-labidc-update/blob/master/img/setting.png)
 
-## 4.2.1 Android React 里的使用方法
+## 4.2.1 IOS React 里的使用方法
 ```javascript
 import LabidcUpdate from 'react-native-labidc-update';
   LabidcUpdate.check((error, events) => {
