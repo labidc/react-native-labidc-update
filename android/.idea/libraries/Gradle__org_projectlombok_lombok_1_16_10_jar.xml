@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Gradle: org.projectlombok:lombok:1.16.10@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/org/projectlombok/lombok/1.16.10/lombok-1.16.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

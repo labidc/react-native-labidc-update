@@ -1,0 +1,16 @@
+
+{
+  "name": "react-native-labidc-update",
+  "version": "1.0.7",
+  "description": "",
+  "main": "index.js",
+  "keywords": [
+    "react-native",
+    "react-native-update"
+  ],
+  "author": "",
+  "license": "",
+  "peerDependencies": {
+    "react-native": ">=0.53.3"
+  }
+}

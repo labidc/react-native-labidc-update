@@ -1,0 +1,63 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+	package
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:3:11-44
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:1-17:12
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:2:11-69
+application
+ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:4:5-16:19
+	android:label
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:4:18-50
+provider#android.support.v4.content.FileProvider
+ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:6:9-14:20
+	android:grantUriPermissions
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:10:13-47
+	android:authorities
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:8:13-54
+	android:exported
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:9:13-37
+	android:name
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:7:13-67
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:11:13-13:54
+	android:resource
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:13:17-51
+	android:name
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:12:17-67
+meta-data#labidc.update.url
+ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:15:9-152
+	android:value
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:15:20-106
+	android:name
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml:15:107-139
+uses-sdk
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		ADDED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml
+		INJECTED from /Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/AndroidManifest.xml

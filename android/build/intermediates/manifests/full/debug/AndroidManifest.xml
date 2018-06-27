@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.react.labidc.update"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="22" />
+
+    <application android:label="@string/app_name" >
+
+        <!-- 文件提供者是android 7.0 以上的版本需要 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.kp.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="labidc.update.url"
+            android:value="https://api.qishixingqiu.com/api/common/client/version/express-android" />
+    </application>
+
+</manifest>

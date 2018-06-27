@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="roctet_bg_img">
+        @drawable/roctet_bg
+    </item>
+</resources>

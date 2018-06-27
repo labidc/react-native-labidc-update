@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--可以参考该目录：https://blog.csdn.net/soslinken/article/details/70145354-->
+    <!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()/DCIM/cameraDemo目录-->
+    <external-path name="hm_dcim" path="DCIM/cameraDemo" />
+    <!--代表外部存储区域的根目录下的文件 Environment.getExternalStorageDirectory()/Pictures/cameraDemo目录-->
+    <external-path name="hm_pictures" path="Pictures/cameraDemo" />
+    <!--代表app 私有的存储区域 Context.getFilesDir()目录下的images目录 /data/user/0/com.hm.camerademo/files/privateFiles-->
+    <files-path name="hm_private_files" path="/" />
+    <!--代表app 私有的存储区域 Context.getCacheDir()目录下的images目录 /data/user/0/com.hm.camerademo/cache/privateCaches-->
+    <cache-path name="hm_private_cache" path="privateCaches" />
+</paths>

@@ -1,0 +1,21 @@
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.react.labidc.update">
+
+    <application android:label="@string/app_name">
+        <!--文件提供者是android 7.0 以上的版本需要-->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.react.labidc.update.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <!-- 在你的应用中配置该资源
+        <meta-data android:value="您的请求最新版本信息的路径"
+         android:name="labidc.update.url"></meta-data>-->
+    </application>
+</manifest>
+  

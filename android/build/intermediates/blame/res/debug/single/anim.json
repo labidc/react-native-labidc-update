@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/push_bottom_in.xml",
+        "source": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/res/anim/push_bottom_in.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/catalyst_push_up_in.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/0c19056c32f240b5d2f82e7067083e9300d800aa/output/res/anim/catalyst_push_up_in.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/push_bottom_out.xml",
+        "source": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/res/anim/push_bottom_out.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/bottom_menu_enter.xml",
+        "source": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/res/anim/bottom_menu_enter.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_popup_enter.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_popup_enter.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_fade_in.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_fade_in.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_slide_in_top.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_slide_in_top.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_slide_out_bottom.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_slide_out_bottom.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_popup_exit.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_popup_exit.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_shrink_fade_out_from_bottom.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_shrink_fade_out_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/catalyst_push_up_out.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/0c19056c32f240b5d2f82e7067083e9300d800aa/output/res/anim/catalyst_push_up_out.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/bottom_menu_exit.xml",
+        "source": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/src/main/res/anim/bottom_menu_exit.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_grow_fade_in_from_bottom.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_grow_fade_in_from_bottom.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_fade_out.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_fade_out.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_slide_out_top.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_slide_out_top.xml"
+    },
+    {
+        "merged": "/Users/chenxingliang/Desktop/ReactNative/react-native-labidc-update/android/build/intermediates/res/merged/debug/anim/abc_slide_in_bottom.xml",
+        "source": "/Users/chenxingliang/.android/build-cache/58a015a109fcf31c2915b501d47f82635794a85e/output/res/anim/abc_slide_in_bottom.xml"
+    }
+]
