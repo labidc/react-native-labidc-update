@@ -10,5 +10,6 @@
 
 @interface LabidcUpdate : NSObject <RCTBridgeModule>
 // 检查更新
-- (NSString *)check;
+- (void) check:(NSDictionary *) jsonDic;
 @end
+  

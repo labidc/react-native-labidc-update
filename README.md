@@ -1,7 +1,7 @@
 
 # react-native-labidc-update
-# 安卓： 1 --> 2 或者 3 --> 4.1
-# IOS： 1 --> 2 或者 3 --> 4.2
+# 安卓： 1 --> 2/3 --> 4.1
+# IOS： 1 --> 2/3 --> 4.2
 ## 1.安装开发包
 
 `$ npm install react-native-labidc-update --save`
@@ -36,28 +36,7 @@
 
 ## 4.1 Android 配置说明
 
-1. 打开 `AndroidManifest.xml`
-
-2. 在application 节点里添加，  android:value 内容填写你的请求版本信息的地址
-`<meta-data android:value=""
-            android:name="labidc.update.url"></meta-data>`
-
-   #该url请求必须是一个json的get请求，返回以下json格式
-	```
-     {
-		 "clientName":"express-android",
-		 "clientSize":"-",
-		 "clientUrl":"http://www.xxx.com/1.1.0.apk",
-		 "promote":5,
-		 "upgradePrompt":"",
-		 "version":5,
-		 "versionCode":"v1.1.0"
-	}
-  	```
-   #上面json数据的 version 是检查的数字版本号，该插件会通过该版本号去和 您的app的 `AndroidManifest.xml` 里的android:versionCode="版本号"进行比较，如果大于android:versionCode="版本号", 就会提示更新
-   
-
-3. 背景图片的更换：该组件提供了默认背景图片，如果您需要更换图片，请在你的app工程中添加目录
+1. 背景图片的更换：该组件提供了默认背景图片，如果您需要更换图片，请在你的app工程中添加目录
 ```res/drawable-hdpi``` （有可能目录已存在）然后放入背景图片, `roctet_bg.png`。 注意：图片文件名必须是这个名称。
 建议图片文件规格大小：492 * 620
 
@@ -65,47 +44,67 @@
 ```javascript
 import LabidcUpdate from 'react-native-labidc-update';
 
-// TODO: 触发更新检查
-LabidcUpdate.check();
+// TODO: 该传递进入插件的数据，请自行通过自己开发后端api调用返回数据，然后包装成下面的数据格式
+ // versionCode 是您们自己的api接口获取当前最新版本号
+    let json = {};
+    json.title ="标题"; //标题，选填
+    json.titleColor ="#FF1527"; // 标题颜色 选填
+    json.versionCode = 3; //编译版本号 必填，因为拿使用该版本号和apk文件版本号比对，versionCode 大于 apk的版本，会出现提示框
+    json.versionName = "1.0.1"; // 版本号名 建议必填
+    json.versionNameColor = "#FF1527"; //版本号颜色 选填
+    json.upgradePrompt = "这次版本更新了 \n 1.长帅了 \n 2.长高了 " // 版本更新说明, "\n" 换行 选填
+    json.upgradePromptColor = "#FF1527"; //版本更新说明颜色 选填
+    json.butText = "点击更新"; //按钮文本 选填
+    json.butTextColor = "#FF1527"; //按钮文本颜色 选填
+    json.butBgColor = "#FF1527"; //按钮背景颜色
+    json.apkUrl = "http://client.download.qishixingqiu.com/0client/express/1.1.1.apk"; //apk下载地址，必填
+    //确认更新后的更新方式。
+    //填 0 自动下载并安装,必须是apk文件。
+    //填 1 跳转到 apkUrl 提供的地址，打开浏览器，可以是一个页面
+    json.installType = 1; 
+    /**
+     * statusCode 状态编码 == 0 正确，number类型
+     * statusMsg 状态内容 String类型
+     */
+    LabidcUpdate.check(JSON.stringify(json), (statusCode, statusMsg) => {
+        console.warn(statusCode);
+        console.warn(typeof (statusCode));
+        console.warn(statusMsg);
+    });
+
 ```
 
 
 ## 4.2 IOS 配置说明
 
-1. 使用XCode 打开你的项目，然后添加plist文件到的项目根目录流程：
-`File——>New——>File，选择iOS-->Resource-->Property List`
-文件完成名称 LabidcUpdate.plist
-2. 选择该 LabidcUpdate.plist 文件，在Root下创建两个键值对:
-    一个叫url, 类型是String
-    一个叫update,类型Boolean
-
-![image](https://github.com/labidc/react-native-labidc-update/blob/master/img/plist.png)
-  
-3. url 是请求判断是否有更新的接口
-   #该url请求必须是一个json的get请求，返回以下json格式
-	```
-     {
-		 "clientName":"express-android",
-		 "clientSize":"-",
-		 "clientUrl":"http://www.xxx.com/1.1.0.apk",
-		 "promote":5,
-		 "upgradePrompt":"",
-		 "version":5,
-		 "versionCode":"v1.1.0"
-	}
-  	```
-#上面json数据的 version 是检查的数字版本号，该插件会通过该版本号去和 您的IOS 项目的 TARGETS 设置里面的 Build 值进行比较，如果大于Build 值, 就会提示更新
-4. update 填写YES, 该组件会自动出现选择提示框，用户点击更新按钮会自动跳转到上面json数据格式的 clientUrl 去，适合企业级证书跳转plist自动安装的模式。如果填写NO，该组件不做任何操作，只会通过回调函数的方式返回，true和false，表示是否需要更新，您的js代码得到回调请求之后，自己用RN编写需要更新的业务逻辑与UI交互。
-
-![image](https://github.com/labidc/react-native-labidc-update/blob/master/img/setting.png)
+1. 不需要任何配置
 
 ## 4.2.1 IOS React 里的使用方法
 ```javascript
+// TODO: 该传递进入插件的数据，请自行通过自己开发后端api调用返回数据，然后包装成下面的数据格式
 import LabidcUpdate from 'react-native-labidc-update';
-  LabidcUpdate.check((error, events) => {
-	    // events 只会返回true或者false，表示是否需要更新。
-        console.info(events);
-    });
+ let json = {};
+    // plist 地址，企业证书地址，或者苹果商店跳转地址
+    json.jumpUrl = "http://client.download.qishixingqiu.com/0client/express/1.1.1.apk"; // 跳转地址，必填
+    // 通过你们自己的接口地址得到最新版本号, 传入将会和Build版本进行比较
+    // 如果versionCode 大于Build大，就会出现弹出更新提示框
+    json.versionCode = 3; //版本号，必填
+    json.title = "标题"; //标题，选填
+    json.message = "弹出框内容"; // 弹出框内容，选填
+    json.cancelText = "取消按钮2222文本";// 选填
+    json.confirmText = "确认按钮2222文本"; // 选填
+
+
+    /**
+     * statusCode 状态编码 == 0 正确，number类型
+     * statusMsg 状态内容 String类型
+     */
+    LabidcUpdate.check(JSON.stringify(json), (statusCode, statusMsg) => {
+        console.warn(statusCode);
+        console.warn(typeof (statusCode));
+        console.warn(statusMsg);
+	});
+	
 ```
 
 

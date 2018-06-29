@@ -53,22 +53,21 @@ public class UpdateDialog extends Dialog implements View.OnClickListener {
         // 添加动画效果
         window.setWindowAnimations(R.style.bottom_menu_animation);
         setContentView(layoutResID);
+
         // 宽度全屏
         WindowManager windowManager = ((Activity) context).getWindowManager();
         Display display = windowManager.getDefaultDisplay();
         WindowManager.LayoutParams lp = getWindow().getAttributes();
+
         // 设置dialog宽度为屏幕的4/5
         lp.width = display.getWidth()*4/5;
-
         getWindow().setAttributes(lp);
+
         // 点击Dialog外部消失
         setCanceledOnTouchOutside(true);
 
-        /*for (int id : listenedItems) {
-            findViewById(id).setOnClickListener(this);
-        }*/
-
         findViewById(R.id.dialog_sure).setOnClickListener(this);
+
     }
 
     /**
