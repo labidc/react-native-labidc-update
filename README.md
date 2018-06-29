@@ -76,7 +76,9 @@ import LabidcUpdate from 'react-native-labidc-update';
 
 
 ## 4.2 IOS 配置说明
+
 1. 不需要任何配置
+
 ## 4.2.1 IOS React 里的使用方法
 ```javascript
 // TODO: 该传递进入插件的数据，请自行通过自己开发后端api调用返回数据，然后包装成下面的数据格式
