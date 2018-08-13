@@ -8,6 +8,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
@@ -77,7 +78,7 @@ public class RNReactNativeLabidcUpdate {
      * 一些初始化操作
      * @param activity
      */
-    public static void init(final Activity activity){
+    public static void init(final Activity activity, final VersionModel versionModel){
 
 
         if(apkCachePath == null) {
@@ -94,6 +95,32 @@ public class RNReactNativeLabidcUpdate {
         if(updateDialog == null) {
             updateDialog = new UpdateDialog(activity, R.layout.dialog_updataversion,
                     new int[]{R.id.dialog_sure});
+
+            /**
+             * 点击按钮出发更新事件
+             */
+            updateDialog.setOnCenterItemClickListener(new UpdateDialog.OnCenterItemClickListener() {
+                @Override
+                public void OnCenterItemClick(UpdateDialog dialog, View view) {
+                    int i = view.getId();
+                    if (i == R.id.dialog_sure) {
+
+                        if (versionModel.getInstallType() == 0) {
+                            // 直接下载并安装
+                            apkUrl = versionModel.getApkUrl();
+                            confirmDownloadApk(activity);
+                        } else {
+                            // 代码实现跳转.浏览器打开
+                            Intent intent = new Intent();
+                            intent.setAction("android.intent.action.VIEW");
+                            Uri url = Uri.parse(versionModel.getApkUrl());
+                            intent.setData(url);
+                            activity.startActivity(intent);
+                        }
+
+                    }
+                }
+            });
         }
 
         if(handler == null) {
@@ -142,7 +169,7 @@ public class RNReactNativeLabidcUpdate {
     public static void check(final Activity activity, VersionModel versionModel) {
 
         // 初始化一些参数
-        init(activity);
+        init(activity, versionModel);
 
         // 显示弹窗
         showUpdateDiglog(activity, versionModel);
@@ -170,7 +197,7 @@ public class RNReactNativeLabidcUpdate {
                 LinearLayout dialog_sure = (LinearLayout) updateDialog.findViewById(R.id.dialog_sure);
 
                 if(!"".equals(versionModel.getTitle()))
-                     updateTitle.setText(versionModel.getTitle());
+                    updateTitle.setText(versionModel.getTitle());
 
                 if(!"".equals(versionModel.getTitleColor()))
                     updateTitle.setTextColor(Color.parseColor(versionModel.getTitleColor()));
@@ -193,34 +220,14 @@ public class RNReactNativeLabidcUpdate {
                 if(!"".equals(versionModel.getButTextColor()))
                     updateBut.setTextColor(Color.parseColor(versionModel.getButTextColor()));
 
-                if(!"".equals(versionModel.getButBgColor()))
+                if(!"".equals(versionModel.getButBgColor())) {
                     dialog_sure.setBackgroundColor(Color.parseColor(versionModel.getButBgColor()));
+                    updateBut.setBackgroundColor(Color.parseColor(versionModel.getButBgColor()));
+                    GradientDrawable gradientDrawable = (GradientDrawable)dialog_sure.getBackground();
+                    gradientDrawable.setColor(Color.parseColor(versionModel.getButBgColor()));
+                }
 
-                /**
-                 * 点击按钮出发更新事件
-                 */
-                updateDialog.setOnCenterItemClickListener(new UpdateDialog.OnCenterItemClickListener() {
-                    @Override
-                    public void OnCenterItemClick(UpdateDialog dialog, View view) {
-                        int i = view.getId();
-                        if (i == R.id.dialog_sure) {
-
-                            if(versionModel.getInstallType() == 0) {
-                                //直接下载并安装
-                                apkUrl = versionModel.getApkUrl();
-                                confirmDownloadApk(activity);
-                            }else {
-                                //代码实现跳转.浏览器打开
-                                Intent intent = new Intent();
-                                intent.setAction("android.intent.action.VIEW");
-                                Uri url = Uri.parse(versionModel.getApkUrl());
-                                intent.setData(url);
-                                activity.startActivity(intent);
-                            }
-
-                        }
-                    }
-                });
+               
             }
         }
     }
