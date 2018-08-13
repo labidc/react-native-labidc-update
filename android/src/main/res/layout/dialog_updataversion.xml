@@ -5,7 +5,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:background="@drawable/roctet_bg_img"
-   >
+    >
 
     <TextView
         android:id="@+id/updateTitle"
@@ -19,7 +19,7 @@
         android:id="@+id/updateVersionName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="新版本来了"
+        android:text=""
         android:textColor="#295775"
         android:textSize="16sp"
         android:layout_marginBottom="20dp"/>
@@ -31,7 +31,7 @@
         android:layout_marginRight="5dp"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:text="快来感受一下新功能吧"
+        android:text=""
         android:textColor="#8e8e8e"
         android:textSize="13sp" />
 

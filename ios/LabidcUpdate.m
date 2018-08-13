@@ -18,7 +18,7 @@ RCT_EXPORT_METHOD(check:(NSString *)jsonModel callback:(RCTResponseSenderBlock)c
     
     if (jsonModel == nil) {
         NSLog(@"请求数据不能为空");
-        callback(@[@0, @"json数据不能为空"]);
+        callback(@[@1, @"json数据不能为空"]);
         return;
     }
     
@@ -29,13 +29,13 @@ RCT_EXPORT_METHOD(check:(NSString *)jsonModel callback:(RCTResponseSenderBlock)c
                                                           error:&error];
     if (error) {
         NSLog(@"出现错误:%@",error);
-        callback(@[@0, @"json转换出现错误"]);
+        callback(@[@2, @"json转换出现错误"]);
         return;
     }
     // 调用方法执行
     [self check:jsonDic];
     //回调给js方法
-    callback(@[@1, @"请求成功"]);
+    callback(@[@0, @"请求成功"]);
 }
 
 // 按钮点击之后的事件
